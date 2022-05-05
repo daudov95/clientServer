@@ -1,7 +1,12 @@
 import React from 'react'
+import { Creator } from './pages'
 
 const app = () => {
-    return <div>app</div>
+    return (
+        <div>
+            <Creator />
+        </div>
+    )
 }
 
 export default app
