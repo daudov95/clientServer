@@ -1,0 +1,667 @@
+$rangeCurrent: #1B292E;
+$rangeActive: #F9ED37;
+$rangeColor: #F9ED37;
+
+
+.player-creator {
+    display: flex;
+    // background: teal;
+    height: inherit;
+    font-family: "DIN Next W1G", sans-serif;
+}
+
+
+.player-creator-view {
+    position: relative;
+    width: calc(100% - 450px); // 75vw - old value
+    background: orange;
+    
+
+    &-top {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        &__block {
+            display: flex;
+
+            &--left {
+                padding-top: 30px;
+                padding-left: 30px;
+                display: flex;
+                align-items: center;
+            }
+
+            &--right {
+                padding-top: 10px;
+                padding-right: 20px;
+                display: flex;
+                align-items: flex-start;
+            }
+        }
+
+        &__title {
+            width: 215px;
+            margin-right: 30px;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 32px;
+            line-height: 38px;
+        }
+        &__text {
+            width: 345px;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 18px;
+        }
+
+        &__btn {
+            display: flex;
+            align-items: center;
+            padding: 14px 30px;
+            border: none;
+            color: #fff;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 22px;
+            background: rgba(27, 41, 46, 0.7);
+            transition: .3s all;
+            cursor: pointer;
+
+            svg {
+                margin-left: 15px;
+            }
+
+            &:hover {
+                background: rgba(27, 41, 46, 0.9);
+            }
+        }
+    }
+
+    &-bottom {
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+        display: flex;
+        align-items: center;
+
+        &__text {
+            width: 215px;
+            margin-left: 15px;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 18px;
+        }
+    }
+}
+
+.player-creator-menu {
+    // width: 25vw;
+    width: 450px;
+    padding-top: 44px;
+    padding-left: 65px;
+    padding-right: 65px;
+    background: url('@img/creator/bg.jpg') no-repeat center/cover;
+    position: relative;
+
+
+    &-step {
+
+        &__row {
+            position: relative;
+        }
+
+        &__title {
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 29px;
+            position: relative;
+            z-index: 1;
+        }
+        &__subtitle {
+            font-weight: bold;
+            font-size: 42px;
+            line-height: 50px;
+            white-space: nowrap;
+            position: absolute;
+            top: -15px;
+            left: -5px;
+            color: rgba(255, 255, 255, 0.05);
+        }
+
+        &-form {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+
+            &__group {
+                display: flex;
+                flex-direction: column;
+                width: calc(50% - 10px);
+
+                &--full {
+                    width: 100%;
+                }
+            }
+
+            &__label {
+                font-weight: 500;
+                font-size: 15px;
+                line-height: 18px;
+                margin-bottom: 10px;
+                color: #555555;
+            }
+
+            &__input {
+                width: 100%;
+                height: 50px;
+                background: rgba(27, 41, 46, 0.8);
+                border: none;
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 22px;
+                color: #fff;
+                padding: 0 15px;
+
+                &:focus {
+                    background: rgba(27, 41, 46, 1); 
+                }
+            }
+        }
+
+
+    }
+}
+
+
+.player-creator-menu-footer {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    &-info {
+        margin-bottom: 30px;
+
+        ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        li {
+            list-style-type: none;
+            width: 40px;
+            height: 5px;
+            background-color: #1B292E;
+
+            &:not(:last-child) {
+                margin-right: 40px;
+            }
+
+            
+        }
+
+        .active {
+            background-color: $rangeColor;
+        }
+    }
+    &-buttons {
+
+        button {
+            width: 50%;
+            height: 55px;
+            transition: .3s background-color;
+            border: none;
+        }
+
+        .prev {
+            background-color: #1B292E;
+            color: #fff;
+
+            &:hover {
+                background-color: lighten(#1B292E, 2);
+            }
+        }
+
+        .next {
+            color: #000;
+            background-color: $rangeColor;
+
+            &:hover {
+                background-color: darken($rangeColor, 15);
+            }
+        }
+    }
+}
+
+.player-creator-menu-step-card {
+    width: 100%;
+    height: 200px;
+    background-color: #fff;
+    background-image: url('../img/creator/bgcard.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #000;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+
+
+    &__img {
+        width: 100px;
+        height: 100px;
+        background: #fff;
+        border: 1px dashed #555555;
+        margin-right: 10px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        color: #fff;
+        text-shadow: 1px 1px 1px #000;
+    }
+
+    &__name, &__lastname, &__age {
+        display: flex;
+        // flex-direction: column;
+
+        span:first-child {
+            margin-right: 5px;
+        }
+    }
+}
+
+
+.player-creator-menu-step-range {
+    display: flex;
+    flex-direction: column;
+
+    &__value {
+        margin-top: 15px;
+        margin-left: 5px;
+        color: $rangeColor;
+    }
+}
+
+
+@import "../../vendor/range";
+
+// RANGE
+
+// Полоска
+.rs-slider-progress-bar {
+    background-color: $rangeColor !important;
+    height: 3px !important;
+}
+
+.rs-slider-bar {
+    height: 3px !important;
+}
+
+.rs-slider-handle:before {
+    background-color: $rangeColor !important;
+    border: none !important;
+    margin-top: -3px !important;
+}
+
+.rs-slider-handle:focus:before, .rs-slider-handle:hover:before {
+    box-shadow: none !important;
+}
+
+
+.creator-step {
+
+    &-gender {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    &__man, &__woman {
+        width: calc(50% - 10px);
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(27, 41, 46, 0.8);
+        transition: .3s background;
+        border-bottom: 2px solid transparent;
+
+        &:hover {
+            background: rgba(27, 41, 46, 1);
+        }
+
+        &.active {
+            border-bottom: 2px solid #F9ED37;
+        }
+    }
+
+    &-parents {
+        display: flex;
+        background: linear-gradient(180deg, rgba(27, 41, 46, 0.1) 0%, #10191C 100%);
+        // margin-bottom: 40px;
+
+        &__mother, &__father {
+            width: 50%;
+
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+
+    &-choose {
+        width: 100%;
+        margin-top: 30px;
+
+        &__label {
+            display: flex;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 18px;
+            margin-bottom: 10px;
+            color: #555555;
+        }
+        
+
+        &__wrap {
+            display: flex;
+            width: 100%;
+            height: 50px;
+            background: rgba(27, 41, 46, 0.7);
+        }
+
+        &__prev, &__next {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $rangeColor;
+            border: none;
+            transition: .3s background-color;
+
+            &:hover {
+                background-color: darken($rangeColor, 15);
+            }
+        }
+        
+        &__value {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1 1 auto;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 22px;
+        }
+    }
+
+
+    &-range {
+        margin-top: 40px;
+
+        &__label {
+            display: flex;
+            margin-bottom: 10px;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 18px;
+        }
+        &__title {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 18px;
+            color: #555555;
+        }
+        &__wrap {
+            margin-top: 10px;
+        }
+    }
+
+
+
+
+}
+
+
+.player-creator-face {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    &-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 90px;
+        height: 105px;
+        transition: .3s border;
+        background: linear-gradient(180deg, rgba(0, 0, 0, .1) 0%, rgba(16, 25, 28, 0.9) 100%);
+        padding-bottom: 5px;
+        padding: 5px;
+        margin-top: 20px;
+        border: 1px solid transparent;
+        
+
+        &:hover, &.active {
+
+            // background: linear-gradient(to right, $rangeColor 0%, $rangeColor 20%, transparent 20%, transparent 80%, $rangeColor 80%, $rangeColor 100%),
+            // linear-gradient(to right, $rangeColor 0%, $rangeColor 20%, transparent 20%, transparent 80%, $rangeColor 80%, $rangeColor 100%),
+            // linear-gradient(to bottom, $rangeColor 0%, $rangeColor 20%, transparent 20%, transparent 80%, $rangeColor 80%, $rangeColor 100%),
+            // linear-gradient(to bottom, $rangeColor 0%, $rangeColor 20%, transparent 20%, transparent 80%, $rangeColor 80%, $rangeColor 100%);
+            // background-size: 100% 2px, 100% 2px, 2px 100%, 2px 100%;
+            // background-position: 0 0, 0 100%, 0 0, 100% 0;
+            // background-repeat: no-repeat;
+
+
+            border-width: 1px;
+            border-style: solid;
+            border-image: linear-gradient(to bottom, $rangeColor 0%, transparent 0%, transparent 20%, $rangeColor 100%);
+            border-image-slice: 1;
+
+        }
+        
+        
+        
+        &__icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // margin-bottom: 5px;
+            // margin-top: -5px;
+            
+            img {
+                width: 50px;
+            }
+        }
+
+        &__label {
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 14px;
+        }
+    }
+
+
+    &-item-second {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        // padding: 5px;
+        transition: .3s border;
+        // margin-top: 10px;
+
+        &:not(:nth-child(1), :nth-child(2), :nth-child(3), :nth-child(4), :nth-child(5)) {
+            margin-top: 10px;
+        }
+
+        border-width: 1px;
+        border-style: solid;
+        border-image: linear-gradient(to bottom, #4B4B4B 0%, transparent 0%, transparent 20%, #4B4B4B 100%);
+        border-image-slice: 1;
+
+        &:hover, &.active {
+            border-width: 1px;
+            border-style: solid;
+            border-image: linear-gradient(to bottom, $rangeColor 0%, transparent 0%, transparent 20%, $rangeColor 100%);
+            border-image-slice: 1;
+        }
+
+        // background: teal;
+
+    }
+
+
+    &--scroll {
+        max-height: 200px;
+        overflow-y: auto;
+        padding-right: 5px;
+
+        /* полоса прокрутки (скроллбар) */
+        &::-webkit-scrollbar {
+            width: 3px; /* ширина для вертикального скролла */
+            height: 2px; /* высота для горизонтального скролла */
+            background-color: rgba(255, 255, 255, 0.25);
+            // display: none;	
+        }
+
+        /* ползунок скроллбара */
+        &::-webkit-scrollbar-thumb {
+            background-color: #999999;
+            border-radius: 9em;
+            box-shadow: inset 1px 1px 10px #f3faf7;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background-color: #BEBEBE;
+        }
+
+        /* Стрелки */
+
+        &::-webkit-scrollbar-button:vertical:start:decrement {
+            background: linear-gradient(120deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+            linear-gradient(240deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+            linear-gradient(0deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+            background-color: #f6f8f4;
+            display: none;
+        }
+
+        &::-webkit-scrollbar-button:vertical:end:increment {
+            background:
+                linear-gradient(300deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+                linear-gradient(60deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+                linear-gradient(180deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+            background-color: #f6f8f4;
+            display: none;
+        }
+
+        &::-webkit-scrollbar-button:horizontal:start:decrement {
+            background:
+                linear-gradient(30deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+                linear-gradient(150deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+                linear-gradient(270deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+            background-color: #f6f8f4;
+        }
+
+        &::-webkit-scrollbar-button:horizontal:end:increment {
+            background:
+                linear-gradient(210deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+                linear-gradient(330deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+                linear-gradient(90deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+            background-color: #f6f8f4;
+        }
+    }
+}
+
+.face-step {
+
+    .player-creator-menu-step-form {
+        margin-top: 30px;
+    }
+
+    .creator-step-range {
+        margin-top: 0;
+
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    }
+
+    &-tab {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+}
+
+
+.player-creator-menu-step__row--mt {
+    margin-top: 40px;
+}
+
+.player-creator-face-color {
+    margin-top: 40px;
+
+    &__label {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 18px;
+    }
+    &__wrap {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -5px;
+        margin-top: -5px;
+    }
+    &__item {
+        width: 30px;
+        height: 30px;
+        margin-left: 5px;
+        margin-top: 5px;
+        transition: .3s all;
+
+        &:hover, &.active {
+            transform: translateY(-2px);
+        }
+    }
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+.step-third {
+
+    .player-creator-face-color {
+        margin-top: 20px;
+    }
+}
